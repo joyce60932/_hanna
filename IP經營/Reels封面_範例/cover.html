@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Playfair+Display:wght@700&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@700&display=block" rel="stylesheet">
 <style>
   :root { --white: #ffffff; --en-top: #fff1ec; --en-bottom: #f2a9a4; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,6 +37,18 @@
     -webkit-background-clip: text; background-clip: text; color: transparent;
     text-shadow: none; filter: drop-shadow(0 3px 10px rgba(0,0,0,.35));
   }
+  /* 淺色版：section 加 class="light"，跟輪播貼文的淺灰底、明體黑字同一套 */
+  .light .photo { filter: saturate(.55) brightness(1.08); }
+  .light .photo::after {
+    background:
+      radial-gradient(ellipse 85% 20% at 50% 52%, rgba(233,233,233,.75), transparent 75%),
+      rgba(233,233,233,.38);
+  }
+  .light .text { text-shadow: none; font-family: "Noto Serif TC", serif; }
+  .light .tag { color: #555; font-weight: 500; }
+  .light .title { color: #1c1c1c; font-weight: 700; }
+  .light .en { background: none; color: #b77d7a; filter: none; }
+
   /* 參考線：body 加 class="guide" 才顯示 */
   .guide .reel::before, .guide .reel::after { position: absolute; left: 0; right: 0; z-index: 2; color: #ff0; font: 28px sans-serif; padding: 10px 20px; }
   .guide .reel { outline: 4px dashed #ff0; outline-offset: -4px; }
@@ -81,6 +93,35 @@
     <p class="en">Daily Vlog</p>
   </div>
 </section>
+
+<section class="reel light">
+  <div class="photo" style="--img: url(photo.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 街頭教學</p>
+    <h1 class="title">新手也看得懂交易</h1>
+    <p class="en">Start Learning</p>
+  </div>
+</section>
+
+<section class="reel light">
+  <div class="photo" style="--img: url(photo2.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 交易心理學</p>
+    <h1 class="title">戒掉追單</h1>
+    <p class="en">Stop Chasing</p>
+  </div>
+</section>
+
+<section class="reel light">
+  <div class="photo" style="--img: url(photo3.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 交易生活</p>
+    <h1 class="title">剛剛好的生活</h1>
+    <p class="en">Daily Vlog</p>
+  </div>
+</section>
+
+
 
 <script>
   // 主標太寬時自動縮小，避免超出照片左右
