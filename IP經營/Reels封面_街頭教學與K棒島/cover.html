@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@500;700&family=Playfair+Display:wght@700&display=block" rel="stylesheet">
+<style>
+  :root { --white: #ffffff; --en-top: #fff1ec; --en-bottom: #f2a9a4; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #666; font-family: "Noto Sans TC", sans-serif; }
+  /* 整張 9:16，照片滿版；文字只放中間 3:4（= IG 主頁格狀會顯示的範圍） */
+  .reel { width: 1080px; height: 1920px; background: #000; position: relative; overflow: hidden; margin: 0 0 20px; }
+  .photo {
+    position: absolute; inset: 0;
+    background: #444 var(--img, none) var(--pos, center) / var(--size, cover) no-repeat;
+  }
+  /* 想要上下黑邊（照片只露中間 3:4）就在 section 加 class="bars" */
+  .bars .photo { top: 240px; bottom: 240px; }
+  /* 照片維持原色、不模糊，只蓋一層黑色遮罩（--dim 調深淺），文字區再稍微加深 */
+  .photo::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 75% 16% at 50% 52%, rgba(0,0,0,.25), transparent 70%),
+      rgba(0,0,0,var(--dim, .3));
+  }
+  .text {
+    position: absolute; left: 0; right: 0; top: 240px; height: 1440px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px 60px 0; text-align: center; z-index: 1;
+    transform: translateY(var(--shift, 0px));
+    text-shadow: 0 2px 16px rgba(0,0,0,.4);
+  }
+  .tag { color: var(--white); font-weight: 500; font-size: 44px; letter-spacing: .3em; margin-bottom: 40px; }
+  .title { color: var(--white); font-weight: 700; font-size: 86px; line-height: 1.3; letter-spacing: .14em; white-space: nowrap; }
+  /* 英文：暖色漸層（上淺下深），每支固定同一組顏色 */
+  .en {
+    font-family: "Playfair Display", serif; font-weight: 700;
+    font-size: 150px; line-height: 1.1; letter-spacing: -.01em; margin-top: 18px; padding: 0 10px 10px; white-space: nowrap;
+    background: linear-gradient(180deg, var(--en-top) 15%, var(--en-bottom) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: none; filter: drop-shadow(0 3px 10px rgba(0,0,0,.35));
+  }
+  /* 淺色版：section 加 class="light"，跟輪播貼文的淺灰底、明體黑字同一套 */
+  .light .photo { filter: saturate(.55) brightness(1.08); }
+  .light .photo::after {
+    background:
+      radial-gradient(ellipse 85% 20% at 50% 52%, rgba(233,233,233,.75), transparent 75%),
+      rgba(233,233,233,.38);
+  }
+  .light .text { text-shadow: none; font-family: "Noto Serif TC", serif; }
+  .light .tag { color: #555; font-weight: 500; }
+  .light .title { color: #1c1c1c; font-weight: 700; }
+  .light .en { background: none; color: #b77d7a; filter: none; }
+
+  /* 參考線：body 加 class="guide" 才顯示 */
+  .guide .reel::before, .guide .reel::after { position: absolute; left: 0; right: 0; z-index: 2; color: #ff0; font: 28px sans-serif; padding: 10px 20px; }
+  .guide .reel { outline: 4px dashed #ff0; outline-offset: -4px; }
+  .guide .text { box-shadow: 0 0 0 9999px rgba(0,0,0,.35); }
+  .guide .reel::before { content: "↓ 3:4 主頁格狀顯示範圍（文字只放這裡）"; top: 190px; }
+  .guide .reel::after { content: "↑ 9:16 完整封面"; bottom: 190px; }
+  .guide .text { outline: 3px solid rgba(255,0,255,.8); outline-offset: -3px; }
+</style>
+</head>
+<body>
+
+<!--
+  一張 section = 一張封面
+  照片：同資料夾放 photo.jpg，或改 --img 的檔名（9:16 直式原始照片，滿版；人臉放上半部、兩人中間留空給字）
+  遮罩：預設黑色 30%，照片太亮就在 photo 的 style 加 --dim: .4
+  照片位置：photo 的 style 加 --pos: center bottom（讓人往上移）
+  文字位置：字蓋到臉時，在 text 的 style 加 --shift: 300px（往下移，別超出 3:4 範圍）
+  tag：系列標，「# 系列名」
+  title：中文主標，一行、≤ 9 字（太長會自動縮小）
+  en：英文副標，1～2 個字，例如 Daily Vlog、Stop Chasing
+-->
+<section class="reel">
+  <div class="photo" style="--img: url(street.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 街頭教學</p>
+    <h1 class="title">完全沒經驗<br>也能看懂交易嗎？</h1>
+    <p class="en">Start Learning</p>
+  </div>
+</section>
+
+<section class="reel">
+  <div class="photo" style="--img: url(game.jpg); --pos: center bottom; --size: 115% auto"></div>
+  <div class="text" style="--shift: 420px">
+    <p class="tag"># K棒島遊戲</p>
+    <h1 class="title">玩遊戲學交易</h1>
+    <p class="en">Play &amp; Learn</p>
+  </div>
+</section>
+
+<script>
+  // 主標太寬時自動縮小，避免超出照片左右
+  document.fonts.ready.then(() => {
+    document.querySelectorAll('.title').forEach(t => {
+      let size = 86;
+      while (t.scrollWidth > 960 && size > 60) { size -= 2; t.style.fontSize = size + 'px'; }
+    });
+    document.querySelectorAll('.en').forEach(t => {
+      let size = 150;
+      while (t.scrollWidth > 980 && size > 90) { size -= 4; t.style.fontSize = size + 'px'; }
+    });
+    if (location.hash === '#guide') document.body.classList.add('guide');
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>

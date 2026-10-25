@@ -11,7 +11,7 @@
   .reel { width: 1080px; height: 1920px; background: #000; position: relative; overflow: hidden; margin: 0 0 20px; }
   .photo {
     position: absolute; inset: 0;
-    background: #444 var(--img, none) center / cover no-repeat;
+    background: #444 var(--img, none) var(--pos, center) / var(--size, cover) no-repeat;
   }
   /* 想要上下黑邊（照片只露中間 3:4）就在 section 加 class="bars" */
   .bars .photo { top: 240px; bottom: 240px; }
@@ -26,6 +26,7 @@
     position: absolute; left: 0; right: 0; top: 240px; height: 1440px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: 80px 60px 0; text-align: center; z-index: 1;
+    transform: translateY(var(--shift, 0px));
     text-shadow: 0 2px 16px rgba(0,0,0,.4);
   }
   .tag { color: var(--white); font-weight: 500; font-size: 44px; letter-spacing: .3em; margin-bottom: 40px; }
@@ -65,6 +66,8 @@
   一張 section = 一張封面
   照片：同資料夾放 photo.jpg，或改 --img 的檔名（9:16 直式原始照片，滿版；人臉放上半部、兩人中間留空給字）
   遮罩：預設黑色 30%，照片太亮就在 photo 的 style 加 --dim: .4
+  照片位置：photo 的 style 加 --pos: center bottom（讓人往上移），--size: 115% auto（放大）
+  文字位置：字蓋到臉時，在 text 的 style 加 --shift: 300px（往下移，別超出 3:4 範圍）
   tag：系列標，「# 系列名」
   title：中文主標，一行、≤ 9 字（太長會自動縮小）
   en：英文副標，1～2 個字，例如 Daily Vlog、Stop Chasing

@@ -25,4 +25,6 @@ description: 製作 Hanna 的 IG Reels 封面（9:16 深色版型）。當使用
 1. 建立 `IP經營/Reels封面_<主題>/`，把範本複製成 `cover.html`，照片放同資料夾，一張封面一個 section
 2. `node IP經營/版型/render-reels.js "$PWD/IP經營/Reels封面_<主題>"`，產出 cover-01.png（上傳用）、cover-01-grid.png（主頁預覽），多張時還有 grid.png
 3. 檢查字有沒有蓋到臉、讀不讀得清楚；照片太亮就把 `--dim` 調到 .4
+   - 人臉在畫面正中間（例如對鏡頭說話）：photo 加 `--pos: center bottom; --size: 115% auto` 讓臉往上，text 加 `--shift: 420px` 讓字放到下巴以下，再看 grid 預覽確認英文沒被切掉
+   - 原始照片上有燒進去的字幕，而且會跟封面字重疊時，先把字幕修掉（OpenCV 裝在暫存 venv：深色背景用 inpaint，淺色或有紋理的背景用上方材質 seamlessClone 蓋掉）
 4. 把圖傳給使用者，再提交並推送
