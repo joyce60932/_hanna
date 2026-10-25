@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Playfair+Display:wght@700&display=block" rel="stylesheet">
 <style>
-  :root { --pink: #f6b8b8; --white: #ffffff; }
+  :root { --white: #ffffff; --en-top: #fff1ec; --en-bottom: #f2a9a4; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #666; font-family: "Noto Sans TC", sans-serif; }
   /* 整張 9:16，照片滿版；文字只放中間 3:4（= IG 主頁格狀會顯示的範圍） */
@@ -15,22 +15,27 @@
   }
   /* 想要上下黑邊（照片只露中間 3:4）就在 section 加 class="bars" */
   .bars .photo { top: 240px; bottom: 240px; }
-  /* 文字底下淡淡壓暗，任何照片都讀得清楚 */
+  /* 整張照片統一壓暗、降一點飽和，整排格子色調才會一致，白字也清楚 */
+  .photo { filter: saturate(.8) brightness(.78); }
   .photo::after {
     content: ""; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 17% at 50% 50%, rgba(0,0,0,.35), transparent 70%);
+    background: radial-gradient(ellipse 75% 16% at 50% 52%, rgba(0,0,0,.3), transparent 70%);
   }
   .text {
     position: absolute; left: 0; right: 0; top: 240px; height: 1440px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding-top: 120px; text-align: center; z-index: 1;
-    text-shadow: 0 2px 18px rgba(0,0,0,.45);
+    padding: 80px 60px 0; text-align: center; z-index: 1;
+    text-shadow: 0 2px 16px rgba(0,0,0,.4);
   }
-  .tag { color: var(--white); font-weight: 500; font-size: 40px; letter-spacing: .16em; margin-bottom: 34px; }
-  .title { color: var(--white); font-weight: 900; font-size: 92px; line-height: 1.32; letter-spacing: .06em; }
+  .tag { color: var(--white); font-weight: 500; font-size: 44px; letter-spacing: .3em; margin-bottom: 40px; }
+  .title { color: var(--white); font-weight: 700; font-size: 86px; line-height: 1.3; letter-spacing: .14em; white-space: nowrap; }
+  /* 英文：暖色漸層（上淺下深），每支固定同一組顏色 */
   .en {
-    color: var(--pink); font-family: "Playfair Display", serif; font-weight: 700;
-    font-size: 118px; line-height: 1; letter-spacing: -.01em; margin-top: 30px;
+    font-family: "Playfair Display", serif; font-weight: 700;
+    font-size: 150px; line-height: 1.1; letter-spacing: -.01em; margin-top: 18px; padding: 0 10px 10px; white-space: nowrap;
+    background: linear-gradient(180deg, var(--en-top) 15%, var(--en-bottom) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: none; filter: drop-shadow(0 3px 10px rgba(0,0,0,.35));
   }
   /* 參考線：body 加 class="guide" 才顯示 */
   .guide .reel::before, .guide .reel::after { position: absolute; left: 0; right: 0; z-index: 2; color: #ff0; font: 28px sans-serif; padding: 10px 20px; }
@@ -47,15 +52,33 @@
   一張 section = 一張封面
   照片：同資料夾放 photo.jpg，或改 --img 的檔名（9:16 直式，滿版；人臉放上半部、兩人中間留空給字）
   tag：系列標，「# 系列名」
-  title：中文主標，最多 2 行、每行 ≤ 7 字，用 br 換行
-  en：英文副標，品牌固定句或系列英文名
+  title：中文主標，一行、≤ 9 字（太長會自動縮小）
+  en：英文副標，1～2 個字，例如 Daily Vlog、Stop Chasing
 -->
 <section class="reel">
   <div class="photo" style="--img: url(photo.jpg)"></div>
   <div class="text">
     <p class="tag"># 街頭教學</p>
-    <h1 class="title">完全沒經驗<br>也能看懂交易嗎？</h1>
+    <h1 class="title">新手也看得懂交易</h1>
     <p class="en">Start Learning</p>
+  </div>
+</section>
+
+<section class="reel">
+  <div class="photo" style="--img: url(photo2.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 交易心理學</p>
+    <h1 class="title">戒掉追單</h1>
+    <p class="en">Stop Chasing</p>
+  </div>
+</section>
+
+<section class="reel">
+  <div class="photo" style="--img: url(photo3.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 交易生活</p>
+    <h1 class="title">剛剛好的生活</h1>
+    <p class="en">Daily Vlog</p>
   </div>
 </section>
 
@@ -63,8 +86,12 @@
   // 主標太寬時自動縮小，避免超出照片左右
   document.fonts.ready.then(() => {
     document.querySelectorAll('.title').forEach(t => {
-      let size = 92;
-      while (t.scrollWidth > 960 && size > 64) { size -= 2; t.style.fontSize = size + 'px'; }
+      let size = 86;
+      while (t.scrollWidth > 960 && size > 60) { size -= 2; t.style.fontSize = size + 'px'; }
+    });
+    document.querySelectorAll('.en').forEach(t => {
+      let size = 150;
+      while (t.scrollWidth > 980 && size > 90) { size -= 4; t.style.fontSize = size + 'px'; }
     });
     if (location.hash === '#guide') document.body.classList.add('guide');
     document.body.dataset.ready = '1';
