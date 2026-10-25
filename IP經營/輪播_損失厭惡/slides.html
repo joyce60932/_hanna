@@ -11,7 +11,7 @@
     width: 1080px; height: 1350px; background: var(--bg);
     position: relative; overflow: hidden; margin: 0 0 20px;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 96px;
+    padding: 190px 96px 130px;
   }
   .series {
     position: absolute; top: 100px; left: 96px;
@@ -54,10 +54,8 @@
 <body>
 
 <section class="slide cover">
-  <div class="series">HANNA'S READING NOTES · 01</div>
   <h1>撿到一百元<br>開心一下<br>弄丟一百元<br>卻想了一整天</h1>
   <div class="person"></div>
-  <div class="who"><div class="en">Daniel Kahneman</div><div class="zh">諾貝爾經濟學獎得主｜心理學家</div></div>
   <div class="sign">Hanna</div>
 </section>
 
@@ -134,9 +132,16 @@
 
 <script>
   // 內容太長時自動縮小字級，確保每張都放得下
+  // 每一頁上方加上依序編號的系列標
+  document.querySelectorAll('.slide').forEach((slide, i) => {
+    const tag = document.createElement('div');
+    tag.className = 'series';
+    tag.textContent = "HANNA'S READING NOTES · " + String(i + 1).padStart(2, '0');
+    slide.prepend(tag);
+  });
   document.fonts.ready.then(() => {
     document.querySelectorAll('.slide .body').forEach(b => {
-      const slide = b.parentElement, max = slide.clientHeight - 200;
+      const slide = b.parentElement, max = slide.clientHeight - 320;
       let size = 40;
       while (b.scrollHeight > max && size > 30) { size -= 1; b.style.fontSize = size + 'px'; }
     });
