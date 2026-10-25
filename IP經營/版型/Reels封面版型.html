@@ -15,11 +15,12 @@
   }
   /* 想要上下黑邊（照片只露中間 3:4）就在 section 加 class="bars" */
   .bars .photo { top: 240px; bottom: 240px; }
-  /* 整張照片統一壓暗、降一點飽和，整排格子色調才會一致，白字也清楚 */
-  .photo { filter: saturate(.8) brightness(.78); }
+  /* 照片維持原色、不模糊，只蓋一層黑色遮罩（--dim 調深淺），文字區再稍微加深 */
   .photo::after {
     content: ""; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 75% 16% at 50% 52%, rgba(0,0,0,.3), transparent 70%);
+    background:
+      radial-gradient(ellipse 75% 16% at 50% 52%, rgba(0,0,0,.25), transparent 70%),
+      rgba(0,0,0,var(--dim, .3));
   }
   .text {
     position: absolute; left: 0; right: 0; top: 240px; height: 1440px;
@@ -62,7 +63,8 @@
 
 <!--
   一張 section = 一張封面
-  照片：同資料夾放 photo.jpg，或改 --img 的檔名（9:16 直式，滿版；人臉放上半部、兩人中間留空給字）
+  照片：同資料夾放 photo.jpg，或改 --img 的檔名（9:16 直式原始照片，滿版；人臉放上半部、兩人中間留空給字）
+  遮罩：預設黑色 30%，照片太亮就在 photo 的 style 加 --dim: .4
   tag：系列標，「# 系列名」
   title：中文主標，一行、≤ 9 字（太長會自動縮小）
   en：英文副標，1～2 個字，例如 Daily Vlog、Stop Chasing
