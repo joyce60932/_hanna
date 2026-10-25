@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Playfair+Display:wght@700&display=block" rel="stylesheet">
+<style>
+  :root { --pink: #f6b8b8; --white: #ffffff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #666; font-family: "Noto Sans TC", sans-serif; }
+  /* 整張 9:16；照片放中間 3:4（= IG 主頁格狀會顯示的範圍），上下黑邊 */
+  .reel { width: 1080px; height: 1920px; background: #000; position: relative; overflow: hidden; margin: 0 0 20px; }
+  .photo {
+    position: absolute; left: 0; top: 240px; width: 1080px; height: 1440px;
+    background: #444 var(--img, none) center / cover no-repeat;
+  }
+  /* 文字底下淡淡壓暗，任何照片都讀得清楚 */
+  .photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 30% at 50% 50%, rgba(0,0,0,.35), transparent 70%);
+  }
+  .text {
+    position: absolute; left: 0; right: 0; top: 240px; height: 1440px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-top: 120px; text-align: center; z-index: 1;
+    text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  }
+  .tag { color: var(--white); font-weight: 500; font-size: 40px; letter-spacing: .16em; margin-bottom: 34px; }
+  .title { color: var(--white); font-weight: 900; font-size: 92px; line-height: 1.32; letter-spacing: .06em; }
+  .en {
+    color: var(--pink); font-family: "Playfair Display", serif; font-weight: 700;
+    font-size: 118px; line-height: 1; letter-spacing: -.01em; margin-top: 30px;
+  }
+  /* 參考線：body 加 class="guide" 才顯示 */
+  .guide .reel::before, .guide .reel::after { position: absolute; left: 0; right: 0; z-index: 2; color: #ff0; font: 28px sans-serif; padding: 10px 20px; }
+  .guide .photo { outline: 4px dashed #ff0; outline-offset: -4px; }
+  .guide .reel::before { content: "↓ 3:4 主頁格狀顯示範圍（文字只放這裡）"; top: 190px; }
+  .guide .reel::after { content: "↑ 9:16 完整封面"; bottom: 190px; }
+  .guide .text { outline: 3px solid rgba(255,0,255,.8); outline-offset: -3px; }
+</style>
+</head>
+<body>
+
+<!--
+  一張 section = 一張封面
+  照片：同資料夾放 photo.jpg，或改 --img 的檔名（直式 3:4 最好，會自動裁切置中）
+  tag：系列標，「# 系列名」
+  title：中文主標，最多 2 行、每行 ≤ 7 字，用 br 換行
+  en：英文副標，品牌固定句或系列英文名
+-->
+<section class="reel">
+  <div class="photo" style="--img: url(photo.jpg)"></div>
+  <div class="text">
+    <p class="tag"># 街頭教學</p>
+    <h1 class="title">完全沒經驗<br>也能看懂交易嗎？</h1>
+    <p class="en">Start Learning</p>
+  </div>
+</section>
+
+<script>
+  // 主標太寬時自動縮小，避免超出照片左右
+  document.fonts.ready.then(() => {
+    document.querySelectorAll('.title').forEach(t => {
+      let size = 92;
+      while (t.scrollWidth > 960 && size > 64) { size -= 2; t.style.fontSize = size + 'px'; }
+    });
+    if (location.hash === '#guide') document.body.classList.add('guide');
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>
