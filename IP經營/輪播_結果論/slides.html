@@ -20,10 +20,8 @@
   }
   .series::after { content: ""; width: 140px; height: 1px; background: var(--soft); }
   .person {
-    position: absolute; right: 0; bottom: 0; width: 430px; height: 520px;
+    position: absolute; right: 0; bottom: 0; width: 480px; height: 520px;
     background: url(person.png) center top / cover no-repeat;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%), linear-gradient(to right, transparent 0%, #000 16%);
-    -webkit-mask-composite: source-in; mask-composite: intersect;
   }
   .who { position: absolute; left: 96px; bottom: 330px; }
   .who::before { content: ""; display: block; width: 72px; height: 1px; background: var(--ink); margin-bottom: 28px; }
