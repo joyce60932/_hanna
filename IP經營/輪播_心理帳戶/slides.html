@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Mrs+Saint+Delafield&display=block" rel="stylesheet">
+<style>
+  :root { --bg: #e9e9e9; --ink: #1c1c1c; --soft: #555; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #999; font-family: "Noto Serif TC", serif; color: var(--ink); }
+  .slide {
+    width: 1080px; height: 1350px; background: var(--bg);
+    position: relative; overflow: hidden; margin: 0 0 20px;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 190px 96px 130px;
+  }
+  .series {
+    position: absolute; top: 100px; left: 96px;
+    display: flex; align-items: center; gap: 24px;
+    font-size: 24px; letter-spacing: 0.28em; color: var(--soft);
+  }
+  .series::after { content: ""; width: 140px; height: 1px; background: var(--soft); }
+  .person {
+    position: absolute; right: 0; bottom: 0; width: 430px; height: 520px;
+    background: url(person.png) center top / cover no-repeat;
+  }
+  .who { position: absolute; left: 96px; bottom: 330px; }
+  .who::before { content: ""; display: block; width: 72px; height: 1px; background: var(--ink); margin-bottom: 28px; }
+  .who .en { font-size: 34px; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .who .zh { font-size: 26px; letter-spacing: 0.16em; color: var(--soft); }
+  .save { margin-top: 1.2em; padding-top: 1.1em; border-top: 1px solid #b5b5b5; }
+  .save .t { display: flex; align-items: center; gap: 18px; font-weight: 700; font-size: 1.1em; margin-bottom: 0.5em; }
+  .save svg { width: 1em; height: 1.2em; }
+  .sign {
+    position: absolute; left: 70px; bottom: 80px;
+    font-family: "Mrs Saint Delafield", cursive; font-size: 130px; line-height: 1;
+  }
+  .cover { justify-content: flex-start; }
+  .cover h1 {
+    position: relative; z-index: 1;
+    font-weight: 700; font-size: 66px; line-height: 1.6;
+    letter-spacing: 0.24em; margin-top: 150px;
+  }
+  .body { font-size: 40px; line-height: 1.8; letter-spacing: 0.14em; }
+  .body h2 { font-weight: 700; font-size: 46px; letter-spacing: 0.12em; margin-bottom: 1.1em; line-height: 1.5; }
+  .body p { margin-bottom: 1.05em; }
+  .body p:last-child { margin-bottom: 0; }
+  .body .en { letter-spacing: 0.02em; }
+  .body .note { margin-top: 1.6em; font-size: 26px; color: var(--soft); letter-spacing: 0.1em; }
+  .end .sign { left: auto; right: 80px; bottom: 70px; font-size: 120px; }
+</style>
+</head>
+<body>
+
+<section class="slide cover">
+  <h1>同樣是一千元<br>薪水省著花<br>中獎的那一千<br>一下就花光</h1>
+  <div class="person"></div>
+  <div class="sign">Hanna</div>
+</section>
+
+<section class="slide"><div class="body">
+  <p>你有沒有發現？</p>
+  <p>薪水多了一千元，<br>你會想著存起來、繳帳單。</p>
+  <p>但發票中了一千元，<br>你可能當天就拿去吃大餐。</p>
+  <p>「反正是多出來的。」</p>
+  <p>明明是一樣的一千元，<br>為什麼花起來差這麼多？</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>經濟學家替這件事取了名字</h2>
+  <p>2017 年諾貝爾經濟學獎得主<br><span class="en">Richard Thaler</span>，<br>提出了「心理帳戶」。</p>
+  <p>他發現，人會在心裡<br>替每一筆錢貼上標籤：</p>
+  <p>這是辛苦賺的，那是意外得來的。<br>這是生活費，那是玩樂基金。</p>
+  <p>標籤不同，<br>我們對待它的方式也不同。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <p>其中最危險的一種標籤，<br>叫做「多出來的錢」。</p>
+  <p><span class="en">Thaler</span> 的研究發現，<br>剛贏了錢的人，<br>會更願意冒險。</p>
+  <p>因為在他們心裡，<br>那不是自己的錢，<br>而是「賭場的錢」。</p>
+  <p>輸掉了，好像也不算真的輸。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>到了交易裡，<br>它變成「反正是賺來的」</h2>
+  <p>連賺了幾筆，<br>帳戶多了 300U。</p>
+  <p>你開始告訴自己：<br>「反正是賺來的，虧掉也沒差。」</p>
+  <p>於是部位越下越大，<br>停損越拉越寬，<br>進場的理由越來越隨便。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <p>但帳戶裡的錢，<br>不會分「本金」和「賺來的」。</p>
+  <p>那 300U 虧掉了，<br>就是真的虧掉了。</p>
+  <p>市場不知道這筆錢從哪裡來，<br>也不會因為它是「多出來的」，<br>就對你手下留情。</p>
+  <p>很多人不是輸在看錯，<br>而是輸在賺錢之後變得太放鬆。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>心理帳戶，還有另一面</h2>
+  <p>短線單被套住了，<br>你開始改口：</p>
+  <p>「沒關係，這筆就當長期持有。」</p>
+  <p>單子還是同一筆，<br>只是換了一個帳戶。</p>
+  <p>換了帳戶，<br>就不用面對「我該停損了」。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <p>但心理帳戶，<br>也不全是壞事。</p>
+  <p>把生活費和交易資金分開，<br>替每個月設定虧損上限，<br>都是很好的分帳方式。</p>
+  <p>重點不是要不要分帳，<br>而是：</p>
+  <p>替你分帳的，是規則，<br>還是情緒？</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>下單之前，<br>先問自己三個問題</h2>
+  <p>① 如果這筆錢是本金，<br>我還會下這麼大嗎？</p>
+  <p>② 這次的部位和停損，<br>符合我原本的風險規則嗎？</p>
+  <p>③ 我是在執行計畫，<br>還是在花「多出來的錢」？</p>
+</div></section>
+
+<section class="slide end"><div class="body">
+  <p>下次連賺幾筆、手開始癢時，<br>提醒自己：</p>
+  <p>賺來的錢，也是你的錢。<br>帳戶裡的每一塊錢，<br>都值得同一套風險規則。</p>
+  <div class="save">
+    <p class="t"><svg viewBox="0 0 20 24"><path d="M2 1h16v22l-8-6-8 6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>先把這篇存起來</p>
+    <p>怕下次賺了錢就鬆懈時，<br>打開來，再看一次。</p>
+  </div>
+  <p class="note">僅為個人觀點分享，不構成投資建議</p>
+</div><div class="sign">Hanna</div></section>
+
+<script>
+  // 內容太長時自動縮小字級，確保每張都放得下
+  // 每一頁上方加上依序編號的系列標
+  document.querySelectorAll('.slide').forEach((slide, i) => {
+    const tag = document.createElement('div');
+    tag.className = 'series';
+    tag.textContent = "HANNA'S READING NOTES · " + String(i + 1).padStart(2, '0');
+    slide.prepend(tag);
+  });
+  document.fonts.ready.then(() => {
+    document.querySelectorAll('.slide .body').forEach(b => {
+      const slide = b.parentElement, max = slide.clientHeight - 320;
+      let size = 40;
+      while (b.scrollHeight > max && size > 30) { size -= 1; b.style.fontSize = size + 'px'; }
+    });
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>
