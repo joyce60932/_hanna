@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Mrs+Saint+Delafield&display=block" rel="stylesheet">
+<style>
+  :root { --bg: #e9e9e9; --ink: #1c1c1c; --soft: #555; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #999; font-family: "Noto Serif TC", serif; color: var(--ink); }
+  .slide {
+    width: 1080px; height: 1350px; background: var(--bg);
+    position: relative; overflow: hidden; margin: 0 0 20px;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 190px 96px 130px;
+  }
+  .series {
+    position: absolute; top: 100px; left: 96px;
+    display: flex; align-items: center; gap: 24px;
+    font-size: 24px; letter-spacing: 0.28em; color: var(--soft);
+  }
+  .series::after { content: ""; width: 140px; height: 1px; background: var(--soft); }
+  .person {
+    position: absolute; right: 0; bottom: 0; width: 430px; height: 520px;
+    background: url(person.png) center top / cover no-repeat;
+  }
+  .who { position: absolute; left: 96px; bottom: 330px; }
+  .who::before { content: ""; display: block; width: 72px; height: 1px; background: var(--ink); margin-bottom: 28px; }
+  .who .en { font-size: 34px; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .who .zh { font-size: 26px; letter-spacing: 0.16em; color: var(--soft); }
+  .save { margin-top: 1.2em; padding-top: 1.1em; border-top: 1px solid #b5b5b5; }
+  .save .t { display: flex; align-items: center; gap: 18px; font-weight: 700; font-size: 1.1em; margin-bottom: 0.5em; }
+  .save svg { width: 1em; height: 1.2em; }
+  .sign {
+    position: absolute; left: 70px; bottom: 80px;
+    font-family: "Mrs Saint Delafield", cursive; font-size: 130px; line-height: 1;
+  }
+  .cover { justify-content: flex-start; }
+  .cover h1 {
+    position: relative; z-index: 1;
+    font-weight: 700; font-size: 66px; line-height: 1.6;
+    letter-spacing: 0.24em; margin-top: 150px;
+  }
+  .body { font-size: 40px; line-height: 1.8; letter-spacing: 0.14em; }
+  .body h2 { font-weight: 700; font-size: 46px; letter-spacing: 0.12em; margin-bottom: 1.1em; line-height: 1.5; }
+  .body p { margin-bottom: 1.05em; }
+  .body p:last-child { margin-bottom: 0; }
+  .body .en { letter-spacing: 0.02em; }
+  .body .follow { font-size: 30px; font-weight: 600; letter-spacing: 0.1em; margin-top: 1.2em; margin-bottom: 0; }
+  .body .note { margin-top: 1.6em; font-size: 26px; color: var(--soft); letter-spacing: 0.1em; }
+  .end .sign { left: auto; right: 80px; bottom: 70px; font-size: 120px; }
+  .check p { margin-bottom: 0.75em; }
+  .box { display: inline-block; width: 0.78em; height: 0.78em; border: 2px solid var(--ink); margin-right: 0.45em; vertical-align: -0.08em; }
+  .ex { display: block; font-size: 0.72em; color: var(--soft); margin-left: 1.35em; letter-spacing: 0.08em; line-height: 1.6; }
+  .tip { margin-top: 0.9em; padding-top: 0.8em; border-top: 1px solid #b5b5b5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<section class="slide cover">
+  <h1>買3萬的手機<br>比價3天<br>買5萬的股票<br>只看3分鐘？</h1>
+  <div class="person"></div>
+  <div class="sign">Hanna</div>
+</section>
+
+<section class="slide"><div class="body">
+  <h2>你是不是也這樣？</h2>
+  <p>買手機：看開箱、比規格、<br>等雙 11，拖了 3 天才下單。</p>
+  <p>買股票：同事說「這支會漲」，<br>3 分鐘就買了 5 萬。</p>
+  <p>「大家都在買，應該不會錯吧？」</p>
+  <p>花 3 萬很謹慎，<br>花 5 萬卻很隨便。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>連傳奇基金經理人<br>都看不下去</h2>
+  <p>他說過一句很有名的話：</p>
+  <p>「很多人研究買冰箱的時間，<br>比研究買股票還多。」</p>
+  <p>他管理的基金，13 年來<br>平均每年賺大約 29%。</p>
+  <p>他是 <span class="en">Peter Lynch</span>。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>他說：上班族其實有優勢</h2>
+  <p>你每天用的產品、逛的店、<br>公司買的設備，<br>都是你最熟的研究資料。</p>
+  <p>所以他主張：<br>買你看得懂的東西。</p>
+  <p>但前提是，<br>你真的有花時間弄懂它。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>多數人虧錢，<br>不是因為不聰明</h2>
+  <p>是因為下單太快：<br>聽到消息就買，看到跌就賣。</p>
+  <p>買之前沒想過：<br>為什麼買？跌了怎麼辦？</p>
+  <p>買手機都會先想<br>「我要拿來做什麼」，<br>買股票卻常常忘了。</p>
+</div></section>
+
+<section class="slide"><div class="body check">
+  <h2>下單前 3 分鐘檢查表</h2>
+  <p><span class="box"></span>能用一句話說出為什麼買？<span class="ex">例：產品我每天在用，生意越來越好</span></p>
+  <p><span class="box"></span>這筆錢虧掉也不影響生活？<span class="ex">例：不動到房租、生活費、緊急預備金</span></p>
+  <p><span class="box"></span>跌多少就賣，先寫下來了？<span class="ex">例：跌 10% 就出場</span></p>
+  <p><span class="box"></span>是自己查過，不只聽別人說？<span class="ex">例：至少知道公司在做什麼、有沒有賺錢</span></p>
+  <p><span class="box"></span>明天跌 20%，我睡得著？<span class="ex">睡不著，就是買太多了</span></p>
+  <p class="tip">5 項都打勾，再按下單。</p>
+</div></section>
+
+<section class="slide"><div class="body">
+  <h2>檢查表不是叫你不要買</h2>
+  <p>不是要你研究 3 個月才能買。</p>
+  <p>而是用 3 分鐘，<br>擋掉最衝動的那幾筆。</p>
+  <p>少買一筆衝動單，<br>可能就少虧一個月的薪水。</p>
+</div></section>
+
+<section class="slide end"><div class="body">
+  <h2>買手機你會比價，<br>買股票也值得多花 3 分鐘</h2>
+  <p>留言告訴我：<br>你上一次買股票，花多久決定？<br>① 3 分鐘 ② 1 天 ③ 1 週以上</p>
+  <div class="save">
+    <p class="t"><svg viewBox="0 0 20 24"><path d="M2 1h16v22l-8-6-8 6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>先把這篇存起來</p>
+    <p>下次想下單前，<br>打開來，花 3 分鐘對一次。</p>
+  </div>
+  <p class="follow">追蹤 @_hannapang，每週一篇交易心理筆記</p>
+  <p class="note">僅為個人觀點分享，不構成投資建議</p>
+</div><div class="sign">Hanna</div></section>
+
+<script>
+  // 內容太長時自動縮小字級，確保每張都放得下
+  // 每一頁上方加上依序編號的系列標
+  document.querySelectorAll('.slide').forEach((slide, i) => {
+    const tag = document.createElement('div');
+    tag.className = 'series';
+    tag.textContent = "HANNA'S READING NOTES · " + String(i + 1).padStart(2, '0');
+    slide.prepend(tag);
+  });
+  document.fonts.ready.then(() => {
+    document.querySelectorAll('.slide .body').forEach(b => {
+      const slide = b.parentElement, max = slide.clientHeight - 320;
+      let size = 40;
+      while (b.scrollHeight > max && size > 30) { size -= 1; b.style.fontSize = size + 'px'; }
+    });
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>
