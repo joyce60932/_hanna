@@ -52,6 +52,10 @@
   .box { display: inline-block; width: 0.78em; height: 0.78em; border: 2px solid var(--ink); margin-right: 0.45em; vertical-align: -0.08em; }
   .ex { display: block; font-size: 0.72em; color: var(--soft); margin-left: 1.35em; letter-spacing: 0.08em; line-height: 1.6; }
   .tip { margin-top: 0.9em; padding-top: 0.8em; border-top: 1px solid #b5b5b5; font-weight: 700; }
+  /* 小改版：標題更大更粗、每頁底部一句結論 */
+  .body h2 { font-size: 58px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.4; margin-bottom: 0.9em; }
+  .take { margin-top: 1.3em; font-weight: 700; font-size: 1.05em; letter-spacing: 0.1em; }
+  .take::before { content: ""; display: block; width: 88px; height: 4px; background: var(--ink); margin-bottom: 0.8em; }
 </style>
 </head>
 <body>
@@ -63,58 +67,56 @@
 </section>
 
 <section class="slide"><div class="body">
-  <h2>你是不是也這樣？</h2>
-  <p>買手機：看開箱、比規格、<br>等雙 11，拖了 3 天才下單。</p>
+  <h2>你是不是<br>也這樣？</h2>
+  <p>買手機：看開箱、比規格、等雙 11。</p>
   <p>買股票：同事說「這支會漲」，<br>3 分鐘就買了 5 萬。</p>
-  <p>「大家都在買，應該不會錯吧？」</p>
-  <p>花 3 萬很謹慎，<br>花 5 萬卻很隨便。</p>
+  <p class="take">花 3 萬很謹慎，花 5 萬卻很隨便。</p>
 </div></section>
 
 <section class="slide"><div class="body">
   <h2>連傳奇基金經理人<br>都看不下去</h2>
-  <p>他說過一句很有名的話：</p>
   <p>「很多人研究買冰箱的時間，<br>比研究買股票還多。」</p>
-  <p>他管理的基金，13 年來<br>平均每年賺大約 29%。</p>
-  <p>他是 <span class="en">Peter Lynch</span>。</p>
+  <p>他是 <span class="en">Peter Lynch</span>，<br>13 年平均每年賺大約 29%。</p>
+  <p class="take">高手買股票，比你買冰箱還認真。</p>
 </div></section>
 
 <section class="slide"><div class="body">
-  <h2>他說：上班族其實有優勢</h2>
-  <p>你每天用的產品、逛的店、<br>公司買的設備，<br>都是你最熟的研究資料。</p>
-  <p>所以他主張：<br>買你看得懂的東西。</p>
-  <p>但前提是，<br>你真的有花時間弄懂它。</p>
+  <h2>上班族<br>其實有優勢</h2>
+  <p>你每天用的產品、逛的店，<br>就是你最熟的研究資料。</p>
+  <p>前提是，你真的花時間弄懂它。</p>
+  <p class="take">買你看得懂的東西。</p>
 </div></section>
 
 <section class="slide"><div class="body">
-  <h2>多數人虧錢，<br>不是因為不聰明</h2>
-  <p>是因為下單太快：<br>聽到消息就買，看到跌就賣。</p>
+  <h2>多數人虧錢，<br>是因為下單太快</h2>
+  <p>聽到消息就買，看到跌就賣。</p>
   <p>買之前沒想過：<br>為什麼買？跌了怎麼辦？</p>
-  <p>買手機都會先想<br>「我要拿來做什麼」，<br>買股票卻常常忘了。</p>
+  <p class="take">不是不聰明，是太急。</p>
 </div></section>
 
 <section class="slide"><div class="body check">
-  <h2>下單前 3 分鐘檢查表</h2>
+  <h2>下單前 3 分鐘<br>檢查表</h2>
   <p><span class="box"></span>能用一句話說出為什麼買？<span class="ex">例：產品我每天在用，生意越來越好</span></p>
   <p><span class="box"></span>這筆錢虧掉也不影響生活？<span class="ex">例：不動到房租、生活費、緊急預備金</span></p>
   <p><span class="box"></span>跌多少就賣，先寫下來了？<span class="ex">例：跌 10% 就出場</span></p>
-  <p><span class="box"></span>是自己查過，不只聽別人說？<span class="ex">例：至少知道公司在做什麼、有沒有賺錢</span></p>
+  <p><span class="box"></span>是自己查過，不只聽別人說？<span class="ex">例：知道公司在做什麼、有沒有賺錢</span></p>
   <p><span class="box"></span>明天跌 20%，我睡得著？<span class="ex">睡不著，就是買太多了</span></p>
-  <p class="tip">5 項都打勾，再按下單。</p>
+  <p class="take">5 項都打勾，再按下單。</p>
 </div></section>
 
 <section class="slide"><div class="body">
-  <h2>檢查表不是叫你不要買</h2>
-  <p>不是要你研究 3 個月才能買。</p>
-  <p>而是用 3 分鐘，<br>擋掉最衝動的那幾筆。</p>
-  <p>少買一筆衝動單，<br>可能就少虧一個月的薪水。</p>
+  <h2>不是叫你<br>不要買</h2>
+  <p>不用研究 3 個月才能買。</p>
+  <p>用 3 分鐘，<br>擋掉最衝動的那幾筆就好。</p>
+  <p class="take">少一筆衝動單，可能少虧一個月薪水。</p>
 </div></section>
 
 <section class="slide end"><div class="body">
-  <h2>買手機你會比價，<br>買股票也值得多花 3 分鐘</h2>
-  <p>留言告訴我：<br>你上一次買股票，花多久決定？<br>① 3 分鐘 ② 1 天 ③ 1 週以上</p>
+  <h2>買手機會比價，<br>買股票也值得多花 3 分鐘</h2>
+  <p>留言告訴我：你上一次買股票，<br>花多久決定？<br>① 3 分鐘 ② 1 天 ③ 1 週以上</p>
   <div class="save">
     <p class="t"><svg viewBox="0 0 20 24"><path d="M2 1h16v22l-8-6-8 6z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>先把這篇存起來</p>
-    <p>下次想下單前，<br>打開來，花 3 分鐘對一次。</p>
+    <p>下次想下單前，打開來對一次。</p>
   </div>
   <p class="follow">追蹤 @_hannapang，每週一篇交易心理筆記</p>
   <p class="note">僅為個人觀點分享，不構成投資建議</p>
