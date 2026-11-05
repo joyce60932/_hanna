@@ -5,6 +5,8 @@ description: 製作 Hanna 的 IG 輪播貼文（HANNA'S READING NOTES 版型）�
 
 # Hanna 輪播貼文版型
 
+> **2026/11/05 起暫停**：使用者決定日更 K 棒教學（見 `hanna-kbar`），名人故事系列先不寫。使用者再要求寫閱讀筆記時才用這份規格。
+
 範本：`IP經營/版型/輪播版型.html`
 算圖腳本：`IP經營/版型/render.js`
 完成範例：`IP經營/輪播_損失厭惡/`（slides.html、person.png、01～10.png）
