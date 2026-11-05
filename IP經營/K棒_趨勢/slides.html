@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>K 棒趨勢</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700;900&display=block" rel="stylesheet"><style>
+:root { --bg:#f4efe6; --card:#fbf8f2; --ink:#2a2622; --soft:#7a7066; --accent:#a8763e; --up:#2f8a5f; --down:#d0584a; --line:#ddd2c1; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:#999; font-family:"Noto Sans TC",sans-serif; color:var(--ink); }
+.slide { width:1080px; height:1350px; background:var(--bg); position:relative; overflow:hidden; margin:0 0 20px; padding:150px 90px 150px; display:flex; flex-direction:column; justify-content:center; }
+.top { position:absolute; top:60px; left:90px; right:90px; display:flex; justify-content:space-between; font-size:24px; letter-spacing:.18em; color:var(--soft); }
+.foot { position:absolute; bottom:56px; left:90px; right:90px; display:flex; justify-content:space-between; font-size:22px; letter-spacing:.1em; color:var(--soft); border-top:1.5px solid var(--line); padding-top:18px; }
+.serif { font-family:"Noto Serif TC",serif; }
+.kicker { font-size:36px; color:var(--soft); letter-spacing:.1em; margin-bottom:18px; }
+h1 { font-family:"Noto Serif TC",serif; font-size:88px; line-height:1.3; font-weight:900; letter-spacing:.04em; }
+h2 { font-family:"Noto Serif TC",serif; font-size:62px; line-height:1.35; font-weight:900; margin-bottom:36px; }
+.acc { color:var(--accent); } .up { color:var(--up); } .down { color:var(--down); }
+p { font-size:36px; line-height:1.7; margin-bottom:24px; }
+.card { font-size:34px; line-height:1.6; background:var(--card); border:1.5px solid var(--line); border-radius:22px; padding:30px 36px; margin-bottom:26px; }
+.card b { font-size:38px; }
+.take { font-family:"Noto Serif TC",serif; font-weight:900; font-size:40px; margin-top:20px; }
+.take::before { content:""; display:block; width:88px; height:5px; background:var(--accent); margin-bottom:20px; }
+.num { display:inline-block; width:54px; height:54px; border-radius:50%; background:var(--ink); color:var(--bg); text-align:center; line-height:54px; font-size:30px; font-weight:700; margin-right:18px; }
+.row { display:flex; align-items:flex-start; margin-bottom:30px; font-size:36px; line-height:1.55; }
+.row small { display:block; font-size:28px; color:var(--soft); }
+table { width:100%; border-collapse:collapse; font-size:30px; line-height:1.5; }
+th, td { border-bottom:1.5px solid var(--line); padding:20px 14px; text-align:left; vertical-align:middle; }
+th { font-family:"Noto Serif TC",serif; font-size:34px; }
+td:first-child { color:var(--soft); width:22%; }
+svg { display:block; }
+.note { font-size:24px; color:var(--soft); margin-top:24px; }
+</style></head><body><section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>01 / 08</span></div><h1 style="font-size:82px">下班才有空看盤<br>打開圖表<br>只看到一堆<br><span class="acc">紅紅綠綠？</span></h1>
+<div style="margin-top:50px;opacity:.85"><svg width="900" height="360" viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans TC"><line x1="35.0" y1="142" x2="35.0" y2="218" stroke="#2f8a5f" stroke-width="4"/><rect x="20" y="160" width="30" height="40" fill="#2f8a5f" rx="3"/><line x1="90.0" y1="142" x2="90.0" y2="233" stroke="#d0584a" stroke-width="4"/><rect x="75" y="160" width="30" height="55" fill="#d0584a" rx="3"/><line x1="145.0" y1="157" x2="145.0" y2="233" stroke="#2f8a5f" stroke-width="4"/><rect x="130" y="175" width="30" height="40" fill="#2f8a5f" rx="3"/><line x1="200.0" y1="157" x2="200.0" y2="253" stroke="#d0584a" stroke-width="4"/><rect x="185" y="175" width="30" height="60" fill="#d0584a" rx="3"/><line x1="255.0" y1="162" x2="255.0" y2="253" stroke="#2f8a5f" stroke-width="4"/><rect x="240" y="180" width="30" height="55" fill="#2f8a5f" rx="3"/><line x1="310.0" y1="132" x2="310.0" y2="198" stroke="#2f8a5f" stroke-width="4"/><rect x="295" y="150" width="30" height="30" fill="#2f8a5f" rx="3"/><line x1="365.0" y1="132" x2="365.0" y2="228" stroke="#d0584a" stroke-width="4"/><rect x="350" y="150" width="30" height="60" fill="#d0584a" rx="3"/><line x1="420.0" y1="152" x2="420.0" y2="228" stroke="#2f8a5f" stroke-width="4"/><rect x="405" y="170" width="30" height="40" fill="#2f8a5f" rx="3"/><line x1="475.0" y1="152" x2="475.0" y2="248" stroke="#d0584a" stroke-width="4"/><rect x="460" y="170" width="30" height="60" fill="#d0584a" rx="3"/><line x1="530.0" y1="167" x2="530.0" y2="248" stroke="#2f8a5f" stroke-width="4"/><rect x="515" y="185" width="30" height="45" fill="#2f8a5f" rx="3"/><line x1="585.0" y1="122" x2="585.0" y2="203" stroke="#2f8a5f" stroke-width="4"/><rect x="570" y="140" width="30" height="45" fill="#2f8a5f" rx="3"/><line x1="640.0" y1="122" x2="640.0" y2="218" stroke="#d0584a" stroke-width="4"/><rect x="625" y="140" width="30" height="60" fill="#d0584a" rx="3"/><line x1="695.0" y1="147" x2="695.0" y2="218" stroke="#2f8a5f" stroke-width="4"/><rect x="680" y="165" width="30" height="35" fill="#2f8a5f" rx="3"/><line x1="750.0" y1="147" x2="750.0" y2="238" stroke="#d0584a" stroke-width="4"/><rect x="735" y="165" width="30" height="55" fill="#d0584a" rx="3"/><line x1="805.0" y1="172" x2="805.0" y2="238" stroke="#2f8a5f" stroke-width="4"/><rect x="790" y="190" width="30" height="30" fill="#2f8a5f" rx="3"/><line x1="860.0" y1="132" x2="860.0" y2="208" stroke="#2f8a5f" stroke-width="4"/><rect x="845" y="150" width="30" height="40" fill="#2f8a5f" rx="3"/></svg></div><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>02 / 08</span></div><h2>晚上 10 點<br>終於有空打開 App</h2>
+<p>K 棒密密麻麻，你盯了 10 分鐘。</p>
+<p>「現在到底是要漲，還是要跌？」</p>
+<p>看不出來，最後關掉 App，<br>跟自己說：明天再看。</p>
+<div class="take">有沒有很熟悉？</div><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>03 / 08</span></div><h2>隔天，它漲了 8%</h2>
+<p>你錯過了。</p>
+<p>下次不想再錯過，<br>看到在漲就趕快追。</p>
+<p>結果，買在最高點。</p>
+<div class="take">不是不努力，是每次都在猜。</div><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>04 / 08</span></div><h2>這不是你<br>不夠聰明</h2>
+<p>盤面上的資訊太多了。</p>
+<p>你沒有 8 小時可以盯盤，<br>下班後只剩一點點時間，<br>本來就很難靠感覺判斷。</p>
+<div class="take">先學會看一件事就好。</div><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>05 / 08</span></div><h2>只看一件事：<br>高點和低點，往哪走？</h2>
+<div class="card"><svg width="860" height="330" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans TC"><line x1="82.0" y1="228" x2="82.0" y2="312" stroke="#2f8a5f" stroke-width="4"/><rect x="60" y="240" width="44" height="60" fill="#2f8a5f" rx="3"/><line x1="167.0" y1="238" x2="167.0" y2="282" stroke="#d0584a" stroke-width="4"/><rect x="145" y="250" width="44" height="20" fill="#d0584a" rx="3"/><line x1="252.0" y1="178" x2="252.0" y2="282" stroke="#2f8a5f" stroke-width="4"/><rect x="230" y="190" width="44" height="80" fill="#2f8a5f" rx="3"/><line x1="337.0" y1="188" x2="337.0" y2="237" stroke="#d0584a" stroke-width="4"/><rect x="315" y="200" width="44" height="25" fill="#d0584a" rx="3"/><line x1="422.0" y1="128" x2="422.0" y2="232" stroke="#2f8a5f" stroke-width="4"/><rect x="400" y="140" width="44" height="80" fill="#2f8a5f" rx="3"/><line x1="507.0" y1="138" x2="507.0" y2="192" stroke="#d0584a" stroke-width="4"/><rect x="485" y="150" width="44" height="30" fill="#d0584a" rx="3"/><line x1="592.0" y1="78" x2="592.0" y2="182" stroke="#2f8a5f" stroke-width="4"/><rect x="570" y="90" width="44" height="80" fill="#2f8a5f" rx="3"/><line x1="82" y1="228" x2="592" y2="78" stroke="#2f8a5f" stroke-width="3" stroke-dasharray="10 8"/><line x1="167" y1="282" x2="507" y2="192" stroke="#2f8a5f" stroke-width="3" stroke-dasharray="10 8"/><text x="630" y="80" font-size="30" fill="#2f8a5f" text-anchor="start" font-weight="700">高點越來越高</text><text x="560" y="250" font-size="30" fill="#2f8a5f" text-anchor="start" font-weight="700">低點也越來越高</text></svg></div>
+<p>高點、低點都一直墊高，<br>就是<b class="up">往上的趨勢</b>。反過來就是往下。</p>
+<div class="take">股票、幣、黃金都一樣，這是共通語言。</div><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>06 / 08</span></div><h2>趨勢小抄</h2>
+<table>
+<tr><th>長相</th><th>怎麼判斷</th><th>新手先這樣做</th></tr>
+<tr><td><svg width="170" height="120" viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans TC"><line x1="14.0" y1="58" x2="14.0" y2="112" stroke="#2f8a5f" stroke-width="4"/><rect x="5" y="70" width="18" height="30" fill="#2f8a5f" rx="3"/><line x1="47.0" y1="68" x2="47.0" y2="102" stroke="#d0584a" stroke-width="4"/><rect x="38" y="80" width="18" height="10" fill="#d0584a" rx="3"/><line x1="80.0" y1="38" x2="80.0" y2="102" stroke="#2f8a5f" stroke-width="4"/><rect x="71" y="50" width="18" height="40" fill="#2f8a5f" rx="3"/><line x1="113.0" y1="48" x2="113.0" y2="87" stroke="#d0584a" stroke-width="4"/><rect x="104" y="60" width="18" height="15" fill="#d0584a" rx="3"/><line x1="146.0" y1="13" x2="146.0" y2="82" stroke="#2f8a5f" stroke-width="4"/><rect x="137" y="25" width="18" height="45" fill="#2f8a5f" rx="3"/></svg><b class="up">往上</b></td><td>高點、低點都在墊高</td><td>順著方向，找做多機會</td></tr>
+<tr><td><svg width="170" height="120" viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans TC"><line x1="14.0" y1="18" x2="14.0" y2="72" stroke="#d0584a" stroke-width="4"/><rect x="5" y="30" width="18" height="30" fill="#d0584a" rx="3"/><line x1="47.0" y1="28" x2="47.0" y2="62" stroke="#2f8a5f" stroke-width="4"/><rect x="38" y="40" width="18" height="10" fill="#2f8a5f" rx="3"/><line x1="80.0" y1="28" x2="80.0" y2="92" stroke="#d0584a" stroke-width="4"/><rect x="71" y="40" width="18" height="40" fill="#d0584a" rx="3"/><line x1="113.0" y1="43" x2="113.0" y2="82" stroke="#2f8a5f" stroke-width="4"/><rect x="104" y="55" width="18" height="15" fill="#2f8a5f" rx="3"/><line x1="146.0" y1="48" x2="146.0" y2="112" stroke="#d0584a" stroke-width="4"/><rect x="137" y="60" width="18" height="40" fill="#d0584a" rx="3"/></svg><b class="down">往下</b></td><td>高點、低點都在變低</td><td>不要急著抄底</td></tr>
+<tr><td><svg width="170" height="120" viewBox="0 0 170 120" xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans TC"><line x1="14.0" y1="38" x2="14.0" y2="92" stroke="#d0584a" stroke-width="4"/><rect x="5" y="50" width="18" height="30" fill="#d0584a" rx="3"/><line x1="47.0" y1="33" x2="47.0" y2="87" stroke="#2f8a5f" stroke-width="4"/><rect x="38" y="45" width="18" height="30" fill="#2f8a5f" rx="3"/><line x1="80.0" y1="33" x2="80.0" y2="92" stroke="#d0584a" stroke-width="4"/><rect x="71" y="45" width="18" height="35" fill="#d0584a" rx="3"/><line x1="113.0" y1="36" x2="113.0" y2="90" stroke="#2f8a5f" stroke-width="4"/><rect x="104" y="48" width="18" height="30" fill="#2f8a5f" rx="3"/><line x1="146.0" y1="38" x2="146.0" y2="94" stroke="#d0584a" stroke-width="4"/><rect x="137" y="50" width="18" height="32" fill="#d0584a" rx="3"/></svg><b>盤整</b></td><td>忽高忽低，沒有方向</td><td>先不要動，等方向出來</td></tr>
+</table>
+<div class="take">先收藏，看盤時拿出來對。</div><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>07 / 08</span></div><h2 style="font-size:46px;margin-bottom:22px">但每天下班，還要自己畫線、判斷……</h2>
+<p style="font-size:34px"><b>如果打開盤面，方向、進場、停損、目標<br>都已經標好了呢？</b></p>
+<div style="display:flex;gap:28px;margin-bottom:12px">
+ <div style="flex:1"><img src="eth.png" style="width:100%;height:540px;object-fit:cover;object-position:top;border-radius:14px;border:1.5px solid var(--line)"><p style="font-size:26px;margin:10px 0 0" class="up"><b>往上：標出做多＋停損</b></p></div>
+ <div style="flex:1"><img src="btc.png" style="width:100%;height:540px;object-fit:cover;object-position:top;border-radius:14px;border:1.5px solid var(--line)"><p style="font-size:26px;margin:10px 0 0" class="down"><b>往下：標出做空＋停損</b></p></div>
+</div>
+<p style="font-size:32px;margin-top:14px">我們用 AI 把這些判斷，做成了一套工具：3+1 指標。</p><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section>
+<section class="slide "><div class="top"><span>BISANCOS・Hanna｜K 棒小教室</span><span>08 / 08</span></div><h2>你不需要變成專家<br>才能看懂盤面</h2>
+<p>會用工具，一樣看得懂走勢，<br>不再憑感覺亂下單。</p>
+<div class="card"><b>工具的領取方式，放在簡介 portal 👆</b></div>
+<div class="card"><b>留言告訴我：</b><br>你一天能花多少時間看盤？<br>① 10 分鐘內 ② 30 分鐘 ③ 1 小時以上</div>
+<p style="font-size:30px">📌 先收藏，看盤時對照<br>👉 追蹤 @_hannapang，每天一個 K 棒觀念</p>
+<p class="note">僅為教學分享，不構成投資建議；指標為輔助工具，仍需自行控管風險</p><div class="foot"><span>BISANCOS・Hanna｜帶你看懂市場</span><span>先收藏，看盤時對照</span></div></section><script>document.fonts.ready.then(() => { document.body.dataset.ready = "1"; });</script></body></html>
