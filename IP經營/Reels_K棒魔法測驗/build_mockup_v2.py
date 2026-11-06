@@ -272,9 +272,10 @@ def ending():
     s += "".join(sparkle(x, y, r, c) for x, y, r, c in ((190,1590,16,GOLD),(890,1580,14,"#fff"),(900,1700,10,GOLD)))
     return s
 
-frames = [("v2_01", hook()), ("v2_02", question(0, False)), ("v2_03", question(0, True)), ("v2_04", question(7, True)), ("v2_05", cards()), ("v2_06", ending())]
-html = ('<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700;900&display=block" rel="stylesheet">'
-        '<style>body{margin:0;background:#000}svg{display:block;margin-bottom:10px}</style></head><body>'
-        + "".join(f'<svg id="{n}" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">{f}</svg>' for n, f in frames)
-        + '<script>document.fonts.ready.then(()=>{document.body.dataset.ready="1"})</script></body></html>')
-open(os.path.join(OUT, "mockup.html"), "w", encoding="utf-8").write(html)
+if __name__ == "__main__":
+    frames = [("v2_01", hook()), ("v2_02", question(0, False)), ("v2_03", question(0, True)), ("v2_04", question(7, True)), ("v2_05", cards()), ("v2_06", ending())]
+    html = ('<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700;900&display=block" rel="stylesheet">'
+            '<style>body{margin:0;background:#000}svg{display:block;margin-bottom:10px}</style></head><body>'
+            + "".join(f'<svg id="{n}" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">{f}</svg>' for n, f in frames)
+            + '<script>document.fonts.ready.then(()=>{document.body.dataset.ready="1"})</script></body></html>')
+    open(os.path.join(OUT, "mockup.html"), "w", encoding="utf-8").write(html)
