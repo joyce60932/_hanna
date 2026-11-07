@@ -1,7 +1,11 @@
 """K 棒魔法測驗 Ep.2「這根 K 棒是誰贏？」mockup。沿用 Ep.1 的魔法風格元件。"""
 import os, sys, math, random
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Reels_K棒魔法測驗"))
-from build_mockup_v2 import G, R, GOLD, INK, NAVY, star, sparkle, kbar, hero, chrome, book, sky
+from build_mockup_v2 import G, R, GOLD, INK, NAVY, star, sparkle, chrome, book, sky
+import build_mockup_v2 as base
+SQ = .07  # K 棒圓角：方一點，看起來才像 K 棒
+kbar = lambda *a, **k: base.kbar(*a, corner=SQ, **k)
+hero = lambda *a, **k: base.hero(*a, corner=14, **k)
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "mockup_preview")
 
@@ -73,26 +77,29 @@ def question(i, answered):
     return s + save_hint()
 
 def cards():
+    """咒語卡＋結尾合併成一頁（整支要在 18 秒內）。"""
     s = sky(seed=5) + chrome()
-    s += (f'<text x="540" y="290" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="84" fill="{GOLD}" stroke="#2a1f55" stroke-width="5" paint-order="stroke">K 棒咒語卡 Ep.2</text>'
-          f'<text x="540" y="370" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="46" fill="{INK}">這根 K 棒是誰贏？5 種一次帶走</text>')
-    pos = [(60, 440), (390, 440), (720, 440), (225, 920), (555, 920)]
+    s += (f'<text x="540" y="280" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="80" fill="{GOLD}" stroke="#2a1f55" stroke-width="5" paint-order="stroke">K 棒咒語卡 Ep.2</text>'
+          f'<text x="540" y="352" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="44" fill="{INK}">這根 K 棒是誰贏？5 種一次帶走</text>')
+    pos = [(60, 410), (390, 410), (720, 410), (225, 840), (555, 840)]
     for i, ((k, verdict, col, why, _), (x, y)) in enumerate(zip(QS, pos)):
-        s += f'<rect x="{x-6}" y="{y-6}" width="312" height="452" rx="28" fill="{col}" opacity=".3" filter="url(#blur2)"/>'
-        s += f'<rect x="{x}" y="{y}" width="300" height="440" rx="24" fill="#1a1640" stroke="{GOLD}" stroke-width="3"/>'
-        s += f'<rect x="{x+10}" y="{y+10}" width="280" height="420" rx="18" fill="none" stroke="{GOLD}" stroke-opacity=".3" stroke-width="2" stroke-dasharray="6 8"/>'
+        s += f'<rect x="{x-6}" y="{y-6}" width="312" height="412" rx="20" fill="{col}" opacity=".3" filter="url(#blur2)"/>'
+        s += f'<rect x="{x}" y="{y}" width="300" height="400" rx="18" fill="#1a1640" stroke="{GOLD}" stroke-width="3"/>'
+        s += f'<rect x="{x+10}" y="{y+10}" width="280" height="380" rx="12" fill="none" stroke="{GOLD}" stroke-opacity=".3" stroke-width="2" stroke-dasharray="6 8"/>'
         s += star(x+32, y+34, 11, GOLD) + f'<text x="{x+270}" y="{y+46}" text-anchor="end" font-family="Noto Sans TC" font-weight="700" font-size="26" fill="{GOLD if i != TRAP else R}">{"⚠️ " if i == TRAP else ""}{i+1:02d}</text>'
-        s += doji(x+150, y+64, y+290, k, 70) if i == 4 else kbar(x+122, y+64, y+290, k, 56, faces=False, glow=False)
-        s += f'<text x="{x+150}" y="{y+350}" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="{44 if len(verdict) <= 3 else 38}" fill="{col}">{verdict}</text>'
+        s += doji(x+150, y+60, y+262, k, 70) if i == 4 else kbar(x+122, y+60, y+262, k, 56, faces=False, glow=False)
+        s += f'<text x="{x+150}" y="{y+320}" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="{42 if len(verdict) <= 3 else 36}" fill="{col}">{verdict}</text>'
         short = why if len(why) <= 9 else "漲上去又被賣下來"
-        s += f'<text x="{x+150}" y="{y+400}" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="28" fill="{INK}" opacity=".85">{short}</text>'
-    s += (f'<text x="540" y="1480" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="70" fill="{INK}">📌 先收藏！</text>'
-          f'<text x="540" y="1570" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="58" fill="{GOLD}">看盤時打開對一遍</text>')
-    s += f'<circle cx="930" cy="1700" r="130" fill="url(#glow)"/>'
-    s += "".join(f'<circle cx="930" cy="1700" r="{r}" fill="none" stroke="{GOLD}" stroke-opacity="{op}" stroke-width="4"/>' for r, op in ((86,.7),(112,.4),(138,.2)))
-    s += f'<path d="M898,1646 h64 v108 l-32,-26 l-32,26Z" fill="{GOLD}" stroke="#fff3c9" stroke-width="4"/>'
-    s += f'<line x1="640" y1="1620" x2="820" y2="1680" stroke="#8a6234" stroke-width="11" stroke-linecap="round"/>' + star(832, 1684, 26, GOLD, 1, .45, "#fff3c9")
-    s += f'<text x="560" y="1720" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="40" fill="{GOLD}">點這裡收藏 →</text>'
+        s += f'<text x="{x+150}" y="{y+366}" text-anchor="middle" font-family="Noto Sans TC" font-weight="700" font-size="27" fill="{INK}" opacity=".85">{short}</text>'
+    s += f'<text x="470" y="1350" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="58" fill="{INK}">📌 先收藏！<tspan fill="{GOLD}">看盤時對一遍</tspan></text>'
+    s += f'<circle cx="960" cy="1330" r="100" fill="url(#glow)"/>'
+    s += "".join(f'<circle cx="960" cy="1330" r="{r}" fill="none" stroke="{GOLD}" stroke-opacity="{op}" stroke-width="4"/>' for r, op in ((66,.7),(88,.4)))
+    s += f'<path d="M935,1288 h50 v84 l-25,-20 l-25,20Z" fill="{GOLD}" stroke="#fff3c9" stroke-width="4"/>'
+    s += (f'<line x1="140" y1="1420" x2="940" y2="1420" stroke="{GOLD}" stroke-opacity=".35" stroke-width="2"/>'
+          f'<text x="540" y="1510" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="56" fill="{GOLD}">錯幾題？留言告訴我</text>'
+          f'<text x="540" y="1590" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="42" fill="{INK}">看不懂？<tspan fill="{GOLD}">3+1 指標</tspan>直接幫你標好</text>'
+          f'<rect x="220" y="1630" width="640" height="104" rx="52" fill="{GOLD}"/><rect x="220" y="1630" width="640" height="104" rx="52" fill="none" stroke="#fff3c9" stroke-width="4"/>'
+          f'<text x="540" y="1698" text-anchor="middle" font-family="Noto Serif TC" font-weight="900" font-size="48" fill="{NAVY}">方法放在主頁 Portaly 👆</text>')
     return s
 
 def ending():
@@ -107,7 +114,7 @@ def ending():
 
 if __name__ == "__main__":
     frames = [("ep2_01", question(0, False)), ("ep2_02", question(0, True)), ("ep2_03", question(2, False)),
-              ("ep2_04", question(2, True)), ("ep2_05", question(4, True)), ("ep2_06", cards()), ("ep2_07", ending())]
+              ("ep2_04", question(2, True)), ("ep2_05", question(4, True)), ("ep2_06", cards())]
     html = ('<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700;900&display=block" rel="stylesheet">'
             '<style>body{margin:0;background:#000}svg{display:block;margin-bottom:10px}</style></head><body>'
             + "".join(f'<svg id="{n}" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">{f}</svg>' for n, f in frames)

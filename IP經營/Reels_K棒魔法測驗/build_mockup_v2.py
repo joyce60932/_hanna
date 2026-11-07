@@ -97,7 +97,7 @@ def arms(x, w, y, col, pose, s):
     }[pose]
     return "".join(f'<path d="{d}" stroke="{col}" stroke-width="{sw}" stroke-linecap="round" fill="none"/>' for d in P)
 
-def kbar(x, top, bottom, k, w, mood="surprised", pose="side", faces=True, glow=True):
+def kbar(x, top, bottom, k, w, mood="surprised", pose="side", faces=True, glow=True, corner=.34):
     o, c, h, l = k
     col = G if c < o else R
     Y = lambda v: top + (bottom - top) * v / 100
@@ -106,31 +106,31 @@ def kbar(x, top, bottom, k, w, mood="surprised", pose="side", faces=True, glow=T
     cx = x + w/2
     s = ""
     if glow:
-        s += f'<rect x="{x-10}" y="{bt-10}" width="{w+20}" height="{bh+20}" rx="{w*.4}" fill="{col}" opacity=".55" filter="url(#blur)"/>'
+        s += f'<rect x="{x-10}" y="{bt-10}" width="{w+20}" height="{bh+20}" rx="{w*max(corner,.12)}" fill="{col}" opacity=".55" filter="url(#blur)"/>'
     s += f'<line x1="{cx}" y1="{Y(h)}" x2="{cx}" y2="{Y(l)}" stroke="{col}" stroke-width="{max(w*.09,3)}" stroke-linecap="round"/>'
     if faces and bh >= w*.7:
         s += arms(x+2, w-4, bt + min(bh*.62, w*1.0), col, pose, w/100)
-    s += f'<rect x="{x}" y="{bt}" width="{w}" height="{bh}" rx="{min(w*.34, bh/2)}" fill="{col}"/>'
+    s += f'<rect x="{x}" y="{bt}" width="{w}" height="{bh}" rx="{min(w*corner, bh/2)}" fill="{col}"/>'
     s += f'<rect x="{x+w*.13}" y="{bt+6}" width="{w*.12}" height="{max(bh-12,0)}" rx="{w*.06}" fill="#fff" opacity=".28"/>'
     if faces and bh >= w*.7:
         fs = w/80; fy = bt + min(bh*.36, w*.6)
         s += eyes(cx, fy, fs, mood) + mouth(cx, fy+16*fs, fs, mood) + extras(cx, fy, fs, mood)
     return s
 
-def hero(cx, by, col, mood, wand=False, tilt=-6, hat_tilt=-12, scale=1.0, pose="wand"):
+def hero(cx, by, col, mood, wand=False, tilt=-6, hat_tilt=-12, scale=1.0, pose="wand", corner=52):
     w, h = 160*scale, 240*scale
     x, y = cx - w/2, by - h
     sc = scale
     s = f'<ellipse cx="{cx}" cy="{by+78*sc}" rx="{110*sc}" ry="{20*sc}" fill="#000" opacity=".35"/>'
     s += f'<ellipse cx="{cx}" cy="{by+78*sc}" rx="{180*sc}" ry="{36*sc}" fill="none" stroke="{GOLD}" stroke-opacity=".5" stroke-width="{3*sc}" stroke-dasharray="{10*sc} {12*sc}"/>'
     s += f'<g transform="rotate({tilt} {cx} {by})">'
-    s += f'<rect x="{x-14*sc}" y="{y-14*sc}" width="{w+28*sc}" height="{h+28*sc}" rx="{60*sc}" fill="{col}" opacity=".5" filter="url(#blur)"/>'
+    s += f'<rect x="{x-14*sc}" y="{y-14*sc}" width="{w+28*sc}" height="{h+28*sc}" rx="{(corner+8)*sc}" fill="{col}" opacity=".5" filter="url(#blur)"/>'
     s += f'<line x1="{cx}" y1="{y-20*sc}" x2="{cx}" y2="{by+60*sc}" stroke="{col}" stroke-width="{13*sc}" stroke-linecap="round"/>'
     # 腳
     s += "".join(f'<ellipse cx="{cx+k*40*sc}" cy="{by+16*sc}" rx="{26*sc}" ry="{14*sc}" fill="#3a2f8a"/>' for k in (-1, 1))
     # 披風
     s += f'<path d="M{x+6*sc},{y+70*sc} Q{cx},{y+110*sc} {x+w-6*sc},{y+70*sc} L{x+w+30*sc},{by+10*sc} Q{cx},{by+40*sc} {x-30*sc},{by+10*sc}Z" fill="#4b3aa8" opacity=".95"/>'
-    s += f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{52*sc}" fill="{col}"/>'
+    s += f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{corner*sc}" fill="{col}"/>'
     s += f'<rect x="{x+22*sc}" y="{y+20*sc}" width="{17*sc}" height="{h-40*sc}" rx="{8*sc}" fill="#fff" opacity=".25"/>'
     s += f'<circle cx="{cx}" cy="{y+156*sc}" r="{13*sc}" fill="{GOLD}"/>' + star(cx, y+156*sc, 9*sc, "#fff7d6")
     s += f'<g transform="rotate({hat_tilt} {cx} {y+8*sc})">'
