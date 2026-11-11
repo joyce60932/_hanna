@@ -29,9 +29,9 @@ P.append(t.page(5, N, L, '''<div class="num">3</div><h2>下一單要改什麼？
 <div class="card">例：下一單，停損設好就不動。<br>例：虧完先停 30 分鐘，不反手。</div>
 <div class="take">一次只改一件事，<br>改得掉，才算數。</div>'''))
 P.append(t.page(6, N, L, '''<h2>交易紀錄小抄</h2>
-<table><colgroup><col style="width:15%"><col style="width:33%"><col style="width:22%"><col style="width:30%"></colgroup><tr><th>日期</th><th>為什麼進場</th><th>照計畫？</th><th>下次改什麼</th></tr>
-<tr><td>11/12</td><td>突破前高，收在上面</td><td class="up">✓ 照做</td><td>—</td></tr>
-<tr><td>11/13</td><td>感覺要跌了</td><td class="down">✕ 移了停損</td><td>停損設好就不動</td></tr>
+<table><colgroup><col style="width:15%"><col style="width:31%"><col style="width:22%"><col style="width:32%"></colgroup><tr><th>日期</th><th>為什麼進場</th><th>照計畫？</th><th>下次改什麼</th></tr>
+<tr><td>11/12</td><td>突破前高<br>收在上面</td><td class="up">✓ 照做</td><td>—</td></tr>
+<tr><td>11/13</td><td>感覺要跌了</td><td class="down">✕ 移停損</td><td>停損設好<br>就不動</td></tr>
 <tr><td>　</td><td>　</td><td>　</td><td>　</td></tr></table>
 <p class="note">每單結束，花 1 分鐘填一行就好</p>
 <div class="take">📌 先收藏，今晚收盤就開始寫。</div>'''))
