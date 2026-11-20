@@ -2,8 +2,8 @@
 import os
 OUT = os.path.dirname(os.path.abspath(__file__))
 PAL = {
- 'A': dict(bg='#13202E', card='#1B2B3D', line='#2C3E52', text='#F3EBDD', muted='#9FAAB6', accent='#E8A33D', up='#E35D5B', down='#3DAA7D', name='深藍墨'),
- 'B': dict(bg='#1D1E21', card='#28292D', line='#3A3B40', text='#FFFFFF', muted='#9C9CA3', accent='#C9A962', up='#E35D5B', down='#3DAA7D', name='炭灰'),
+ 'A': dict(bg='#13202E', card='#1B2B3D', line='#2C3E52', text='#F3EBDD', muted='#9FAAB6', accent='#E8A33D', up='#3DAA7D', down='#E35D5B', name='深藍墨'),
+ 'B': dict(bg='#1D1E21', card='#28292D', line='#3A3B40', text='#FFFFFF', muted='#9C9CA3', accent='#C9A962', up='#3DAA7D', down='#E35D5B', name='炭灰'),
 }
 HEAD = """<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@ body{{width:1080px;height:1350px;background:var(--bg);color:var(--text);font-fam
 </style></head><body>"""
 
 def chart(p, w=760, h=520):
-    # 兩根 K 棒＋停損虛線（不放箭頭、不放買賣按鈕）
+    # 兩根 K 棒＋停損虛線（綠漲紅跌；不放箭頭、不放買賣按鈕）
     y = lambda v: 40 + (100 - v) * (h - 80) / 100
     def candle(cx, o, c, hi, lo, col):
         top, bot = y(max(o, c)), y(min(o, c))
